@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flashcard Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="auth-screen" aria-labelledby="login-title">
+      <div class="auth-card">
+        <h1 id="login-title">Welcome Back</h1>
+        <p>Sign in to continue to your flashcard quiz.</p>
+        <form id="login-form" class="login-form">
+          <label for="full-name">Full Name</label>
+          <input id="full-name" name="fullName" type="text" placeholder="Enter your full name" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Enter your password" required />
+
+          <p id="login-error" class="form-message" aria-live="polite"></p>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </section>
+
+    <main class="app is-hidden">
+      <nav class="top-nav" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" data-target="home">🏠 Home</a>
+        <a href="#flashcards" class="nav-link" data-target="flashcards">🗂️ Flashcards</a>
+        <a href="#quiz" class="nav-link" data-target="quiz">📝 Quiz</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+        <button id="logout-btn" class="logout-btn" type="button">🚪 Logout</button>
+      </nav>
+
+      <header class="app-header" id="home">
+        <h1>Flashcard Quiz App</h1>
+        <p>Practice questions and answers at your own pace.</p>
+        <div id="welcome-message" class="welcome-message">Welcome, Guest</div>
+      </header>
+
+      <section class="flashcard-section" id="flashcards" aria-labelledby="flashcard-title">
+        <h2 id="flashcard-title">Flashcard</h2>
+        <div id="card-counter" class="card-counter">Card 1 of 5</div>
+
+        <article class="flashcard" aria-live="polite">
+          <p class="label">Question</p>
+          <h3 id="flashcard-question">What does HTML stand for?</h3>
+          <p class="label">Answer</p>
+          <p id="flashcard-answer" class="answer hidden">HyperText Markup Language</p>
+        </article>
+
+        <div class="controls">
+          <button id="show-answer-btn" type="button">Show Answer</button>
+          <button id="prev-btn" type="button">Previous</button>
+          <button id="next-btn" type="button">Next</button>
+        </div>
+      </section>
+
+      <section class="quiz-section" id="quiz" aria-labelledby="quiz-title">
+        <div class="quiz-header">
+          <h2 id="quiz-title">Quiz Challenge</h2>
+          <div id="quiz-progress" class="card-counter">Question 1 of 10</div>
+          <button id="start-quiz-btn" type="button">Start Quiz</button>
+        </div>
+
+        <div id="quiz-card" class="quiz-card is-hidden">
+          <p class="label">Question</p>
+          <h3 id="quiz-question"></h3>
+          <div id="quiz-options" class="quiz-options"></div>
+          <div class="quiz-controls">
+            <button id="quiz-next-btn" type="button">Next</button>
+            <button id="quiz-restart-btn" class="quiz-restart-btn is-hidden" type="button">Restart Quiz</button>
+          </div>
+          <p id="quiz-status" class="quiz-status"></p>
+        </div>
+
+        <div id="quiz-result" class="quiz-result is-hidden"></div>
+      </section>
+
+      <section class="editor-section" aria-labelledby="editor-title">
+        <h2 id="editor-title">Add / Edit Flashcards</h2>
+        <form id="flashcard-form">
+          <label for="question-input">Question</label>
+          <input id="question-input" name="question" type="text" placeholder="Enter a question" required />
+
+          <label for="answer-input">Answer</label>
+          <input id="answer-input" name="answer" type="text" placeholder="Enter the answer" required />
+
+          <div class="form-actions">
+            <button type="submit">Save</button>
+            <button id="delete-btn" type="button">Delete</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
